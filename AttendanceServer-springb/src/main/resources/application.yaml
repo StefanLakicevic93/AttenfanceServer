@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: AttendanceServer
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/attendance_server?createDatabaseIfNotExist=true
+    username: root
+    password: Laki1234!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

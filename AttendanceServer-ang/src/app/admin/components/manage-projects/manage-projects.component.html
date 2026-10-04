@@ -1,0 +1,52 @@
+<div style="margin-top: 10px;">
+    <div nz-row>
+        <div nz-col nzFlex="2">
+            <nz-card nzType="inner" style="margin-top: 16px;">
+
+                <form nz-form [formGroup]="projectForm" (ngSubmit)="addProject()">
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the name!">
+                            <input type="text" nz-input formControlName="name"
+                            placeholder="Enter the projects's name"/>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the duration!">
+                            <input type="text" nz-input formControlName="duration"
+                            placeholder="Enter the projects's duration"/>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input the start date!">
+                            <nz-date-picker style="width: 100%;" formControlName="startDate"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <button nz-button nzType="primary" nzBlock class="w-100"
+                    [disabled]="projectForm.invalid">Add New Project</button>
+
+                </form>
+
+
+            </nz-card>
+        </div>
+        <div nz-col nzFlex="3" style="margin-left: 20px;">
+            <nz-card nzType="inner" style="margin-top: 16px;" nzTitle="All Projects">
+                <div nz-card-grid style="width: 100%;" *ngFor="let project of projects">
+                    <div nz-col nzSpan="30">
+                        ID: <strong>{{project.id}}</strong>
+                        -
+                        Name: <strong>{{project.name}}</strong>
+                        -
+                        Duration: <strong>{{project.duration}}</strong>
+                        -
+                        Date: <strong>{{project.startDate | date}}</strong>
+                    </div>
+                </div>
+            </nz-card>
+        </div>
+    </div>
+</div>

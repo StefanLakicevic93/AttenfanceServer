@@ -1,0 +1,25 @@
+<div style="padding: 30px;">
+    <button nz-button nzType="primary" (click)="applyLeave()">
+        Apply Today's Leave
+    </button>
+
+    <nz-table #basicTable [nzData]="leaves" style="margin-top: 10px">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Project Name</th>
+                <th>Manager Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td>{{data.date}}</td>
+                <td>{{data.projectName}}</td>
+                <td>{{data.managerName}}</td>
+                <td>{{data.status == null ? "Pending" : (data.status == 1 ? "Approved" : "Rejected")}}</td>
+            </tr>
+        </tbody>
+    </nz-table>
+
+</div>
